@@ -79,20 +79,20 @@ EOT
     web_pubsub_hubs = optional(map(object({
       name                          = string
       anonymous_connections_enabled = optional(bool) # Default: false
-      event_handler = optional(object({
+      event_handler = optional(list(object({
         auth = optional(object({
           managed_identity_id = string
         }))
         system_events      = optional(set(string))
         url_template       = string
         user_event_pattern = optional(string)
-      }))
-      event_listener = optional(object({
+      })))
+      event_listener = optional(list(object({
         eventhub_name            = string
         eventhub_namespace_name  = string
         system_event_name_filter = optional(list(string))
         user_event_name_filter   = optional(list(string))
-      }))
+      })))
     })))
     web_pubsub_network_acls = optional(map(object({
       default_action = optional(string) # Default: "Deny"
@@ -100,11 +100,11 @@ EOT
         allowed_request_types = optional(set(string))
         denied_request_types  = optional(set(string))
       })
-      private_endpoint = optional(object({
+      private_endpoint = optional(list(object({
         allowed_request_types = optional(set(string))
         denied_request_types  = optional(set(string))
         id                    = string
-      }))
+      })))
     })))
     web_pubsub_shared_private_link_resources = optional(map(object({
       name               = string
