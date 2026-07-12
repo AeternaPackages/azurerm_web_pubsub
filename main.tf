@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.web_pubsubs : {
       for k2, v2 in coalesce(v1.web_pubsub_custom_certificates, {}) :
       "${k1}/${k2}" => merge(v2, {
-        web_pubsub_id = module.web_pubsubs.web_pubsubs["${k1}"].id
+        web_pubsub_id = module.web_pubsubs.web_pubsubs_id["${k1}"]
       })
     }
   ]...)
@@ -14,8 +14,8 @@ locals {
     for k1, v1 in var.web_pubsubs : {
       for k2, v2 in coalesce(v1.web_pubsub_custom_domains, {}) :
       "${k1}/${k2}" => merge(v2, {
-        web_pubsub_id                    = module.web_pubsubs.web_pubsubs["${k1}"].id
-        web_pubsub_custom_certificate_id = try(module.web_pubsub_custom_certificates.web_pubsub_custom_certificates["${k1}/${v2.web_pubsub_custom_certificate_id}"].id, v2.web_pubsub_custom_certificate_id)
+        web_pubsub_id                    = module.web_pubsubs.web_pubsubs_id["${k1}"]
+        web_pubsub_custom_certificate_id = try(module.web_pubsub_custom_certificates.web_pubsub_custom_certificates_id["${k1}/${v2.web_pubsub_custom_certificate_id}"], v2.web_pubsub_custom_certificate_id)
       })
     }
   ]...)
@@ -24,7 +24,7 @@ locals {
     for k1, v1 in var.web_pubsubs : {
       for k2, v2 in coalesce(v1.web_pubsub_hubs, {}) :
       "${k1}/${k2}" => merge(v2, {
-        web_pubsub_id = module.web_pubsubs.web_pubsubs["${k1}"].id
+        web_pubsub_id = module.web_pubsubs.web_pubsubs_id["${k1}"]
       })
     }
   ]...)
@@ -33,7 +33,7 @@ locals {
     for k1, v1 in var.web_pubsubs : {
       for k2, v2 in coalesce(v1.web_pubsub_network_acls, {}) :
       "${k1}/${k2}" => merge(v2, {
-        web_pubsub_id = module.web_pubsubs.web_pubsubs["${k1}"].id
+        web_pubsub_id = module.web_pubsubs.web_pubsubs_id["${k1}"]
       })
     }
   ]...)
@@ -42,7 +42,7 @@ locals {
     for k1, v1 in var.web_pubsubs : {
       for k2, v2 in coalesce(v1.web_pubsub_shared_private_link_resources, {}) :
       "${k1}/${k2}" => merge(v2, {
-        web_pubsub_id = module.web_pubsubs.web_pubsubs["${k1}"].id
+        web_pubsub_id = module.web_pubsubs.web_pubsubs_id["${k1}"]
       })
     }
   ]...)
