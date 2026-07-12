@@ -1,4 +1,9 @@
 # --- azurerm_web_pubsub ---
+output "web_pubsubs_id" {
+  description = "Map of id values across all web_pubsubs, keyed the same as var.web_pubsubs"
+  value       = module.web_pubsubs.web_pubsubs_id
+}
+
 output "web_pubsubs_aad_auth_enabled" {
   description = "Map of aad_auth_enabled values across all web_pubsubs, keyed the same as var.web_pubsubs"
   value       = module.web_pubsubs.web_pubsubs_aad_auth_enabled
@@ -109,6 +114,11 @@ output "web_pubsubs_version" {
 }
 
 # --- azurerm_web_pubsub_custom_certificate ---
+output "web_pubsub_custom_certificates_id" {
+  description = "Map of id values across all web_pubsub_custom_certificates, keyed the same as var.web_pubsub_custom_certificates"
+  value       = module.web_pubsub_custom_certificates.web_pubsub_custom_certificates_id
+}
+
 output "web_pubsub_custom_certificates_certificate_version" {
   description = "Map of certificate_version values across all web_pubsub_custom_certificates, keyed the same as var.web_pubsub_custom_certificates"
   value       = module.web_pubsub_custom_certificates.web_pubsub_custom_certificates_certificate_version
@@ -130,6 +140,11 @@ output "web_pubsub_custom_certificates_web_pubsub_id" {
 }
 
 # --- azurerm_web_pubsub_custom_domain ---
+output "web_pubsub_custom_domains_id" {
+  description = "Map of id values across all web_pubsub_custom_domains, keyed the same as var.web_pubsub_custom_domains"
+  value       = module.web_pubsub_custom_domains.web_pubsub_custom_domains_id
+}
+
 output "web_pubsub_custom_domains_domain_name" {
   description = "Map of domain_name values across all web_pubsub_custom_domains, keyed the same as var.web_pubsub_custom_domains"
   value       = module.web_pubsub_custom_domains.web_pubsub_custom_domains_domain_name
@@ -151,6 +166,11 @@ output "web_pubsub_custom_domains_web_pubsub_id" {
 }
 
 # --- azurerm_web_pubsub_hub ---
+output "web_pubsub_hubs_id" {
+  description = "Map of id values across all web_pubsub_hubs, keyed the same as var.web_pubsub_hubs"
+  value       = module.web_pubsub_hubs.web_pubsub_hubs_id
+}
+
 output "web_pubsub_hubs_anonymous_connections_enabled" {
   description = "Map of anonymous_connections_enabled values across all web_pubsub_hubs, keyed the same as var.web_pubsub_hubs"
   value       = module.web_pubsub_hubs.web_pubsub_hubs_anonymous_connections_enabled
@@ -177,6 +197,11 @@ output "web_pubsub_hubs_web_pubsub_id" {
 }
 
 # --- azurerm_web_pubsub_network_acl ---
+output "web_pubsub_network_acls_id" {
+  description = "Map of id values across all web_pubsub_network_acls, keyed the same as var.web_pubsub_network_acls"
+  value       = module.web_pubsub_network_acls.web_pubsub_network_acls_id
+}
+
 output "web_pubsub_network_acls_default_action" {
   description = "Map of default_action values across all web_pubsub_network_acls, keyed the same as var.web_pubsub_network_acls"
   value       = module.web_pubsub_network_acls.web_pubsub_network_acls_default_action
@@ -198,6 +223,11 @@ output "web_pubsub_network_acls_web_pubsub_id" {
 }
 
 # --- azurerm_web_pubsub_shared_private_link_resource ---
+output "web_pubsub_shared_private_link_resources_id" {
+  description = "Map of id values across all web_pubsub_shared_private_link_resources, keyed the same as var.web_pubsub_shared_private_link_resources"
+  value       = module.web_pubsub_shared_private_link_resources.web_pubsub_shared_private_link_resources_id
+}
+
 output "web_pubsub_shared_private_link_resources_name" {
   description = "Map of name values across all web_pubsub_shared_private_link_resources, keyed the same as var.web_pubsub_shared_private_link_resources"
   value       = module.web_pubsub_shared_private_link_resources.web_pubsub_shared_private_link_resources_name
