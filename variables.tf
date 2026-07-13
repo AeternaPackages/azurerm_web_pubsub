@@ -51,21 +51,21 @@ EOT
     name                          = string
     resource_group_name           = string
     sku                           = string
-    aad_auth_enabled              = optional(bool)   # Default: true
-    capacity                      = optional(number) # Default: 1
-    local_auth_enabled            = optional(bool)   # Default: true
-    public_network_access_enabled = optional(bool)   # Default: true
+    aad_auth_enabled              = optional(bool)
+    capacity                      = optional(number)
+    local_auth_enabled            = optional(bool)
+    public_network_access_enabled = optional(bool)
     tags                          = optional(map(string))
-    tls_client_cert_enabled       = optional(bool) # Default: false
+    tls_client_cert_enabled       = optional(bool)
     identity = optional(object({
       identity_ids = optional(set(string))
       type         = string
     }))
     live_trace = optional(object({
-      connectivity_logs_enabled = optional(bool) # Default: true
-      enabled                   = optional(bool) # Default: true
-      http_request_logs_enabled = optional(bool) # Default: true
-      messaging_logs_enabled    = optional(bool) # Default: true
+      connectivity_logs_enabled = optional(bool)
+      enabled                   = optional(bool)
+      http_request_logs_enabled = optional(bool)
+      messaging_logs_enabled    = optional(bool)
     }))
     web_pubsub_custom_certificates = optional(map(object({
       custom_certificate_id = string
@@ -78,7 +78,7 @@ EOT
     })))
     web_pubsub_hubs = optional(map(object({
       name                          = string
-      anonymous_connections_enabled = optional(bool) # Default: false
+      anonymous_connections_enabled = optional(bool)
       event_handler = optional(list(object({
         auth = optional(object({
           managed_identity_id = string
@@ -95,7 +95,7 @@ EOT
       })))
     })))
     web_pubsub_network_acls = optional(map(object({
-      default_action = optional(string) # Default: "Deny"
+      default_action = optional(string)
       public_network = object({
         allowed_request_types = optional(set(string))
         denied_request_types  = optional(set(string))
