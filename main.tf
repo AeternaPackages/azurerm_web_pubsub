@@ -49,36 +49,36 @@ locals {
 }
 
 module "web_pubsubs" {
-  source      = "git::https://github.com/AeternaModules/azurerm_web_pubsub.git?ref=v4.80.0"
+  source      = "git::https://github.com/AeternaModules/azurerm_web_pubsub.git?ref=v4.81.0"
   web_pubsubs = local.web_pubsubs
 }
 
 module "web_pubsub_custom_certificates" {
-  source                         = "git::https://github.com/AeternaModules/azurerm_web_pubsub_custom_certificate.git?ref=v4.80.0"
+  source                         = "git::https://github.com/AeternaModules/azurerm_web_pubsub_custom_certificate.git?ref=v4.81.0"
   web_pubsub_custom_certificates = local.web_pubsub_custom_certificates
   depends_on                     = [module.web_pubsubs]
 }
 
 module "web_pubsub_custom_domains" {
-  source                    = "git::https://github.com/AeternaModules/azurerm_web_pubsub_custom_domain.git?ref=v4.80.0"
+  source                    = "git::https://github.com/AeternaModules/azurerm_web_pubsub_custom_domain.git?ref=v4.81.0"
   web_pubsub_custom_domains = local.web_pubsub_custom_domains
   depends_on                = [module.web_pubsubs, module.web_pubsub_custom_certificates]
 }
 
 module "web_pubsub_hubs" {
-  source          = "git::https://github.com/AeternaModules/azurerm_web_pubsub_hub.git?ref=v4.80.0"
+  source          = "git::https://github.com/AeternaModules/azurerm_web_pubsub_hub.git?ref=v4.81.0"
   web_pubsub_hubs = local.web_pubsub_hubs
   depends_on      = [module.web_pubsubs]
 }
 
 module "web_pubsub_network_acls" {
-  source                  = "git::https://github.com/AeternaModules/azurerm_web_pubsub_network_acl.git?ref=v4.80.0"
+  source                  = "git::https://github.com/AeternaModules/azurerm_web_pubsub_network_acl.git?ref=v4.81.0"
   web_pubsub_network_acls = local.web_pubsub_network_acls
   depends_on              = [module.web_pubsubs]
 }
 
 module "web_pubsub_shared_private_link_resources" {
-  source                                   = "git::https://github.com/AeternaModules/azurerm_web_pubsub_shared_private_link_resource.git?ref=v4.80.0"
+  source                                   = "git::https://github.com/AeternaModules/azurerm_web_pubsub_shared_private_link_resource.git?ref=v4.81.0"
   web_pubsub_shared_private_link_resources = local.web_pubsub_shared_private_link_resources
   depends_on                               = [module.web_pubsubs]
 }
